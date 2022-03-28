@@ -1,8 +1,8 @@
 # -quotation-management
 
-steps to generate quote-management-1.0-SNAPSHOT.jar with maven
+steps to generate quote-management-1.0-SNAPSHOT.jar with Maven:
 
-1. install docker 
+1. install Maven 
 2. In the project root directory Run `mvn clean package` command
 
 Steps to generate dockerFile :
@@ -13,5 +13,5 @@ Steps to generate dockerFile :
 
 Accessing Swagger:
 
-fter going up image Access the browser and enter the address http://localhost:8081/swagger-ui.html
+After going up image Access the browser and enter the address http://localhost:8081/swagger-ui.html
 
