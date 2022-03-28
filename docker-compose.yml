@@ -1,0 +1,39 @@
+
+version: "3"
+services:
+  quotation:
+    container_name: quotation
+    image: quotation
+    ports:
+      - "8081:8081"
+    networks:
+      - group
+    depends_on:
+      - mysqldb
+    environment:
+       - spring.datasource.url=jdbc:mysql://mysqldb:3306/bootdb?useSSL=false&serverTimezone=UTC
+       - spring.datasource.username=root
+       - spring.datasource.password=root
+  
+  stock:
+    container_name: stock
+    image: lucasvilela/stock-manager
+    ports:
+       - 8080:8080
+    networks:
+      - group
+ 
+  mysqldb:
+    container_name: mysqldb
+    image: mysql:8
+    ports:
+       - 3306:3306
+    networks:
+      - group
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=bootdb  
+
+networks:
+  group:
+    driver: bridge
